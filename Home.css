@@ -1234,7 +1234,6 @@
 .u-section-6 .u-list-1 {
   min-height: 295px;
   grid-template-columns: calc(50% - 25px) calc(50% - 25px);
-  height: auto;
   width: 976px;
   grid-gap: 50px 50px;
   margin: 32px auto 60px;
@@ -1300,6 +1299,7 @@
 
   .u-section-6 .u-list-1 {
     min-height: 243px;
+    height: auto;
     width: 940px;
   }
 
