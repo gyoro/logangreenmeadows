@@ -17,14 +17,15 @@
 	$(document).ready(function(){
 		$(".zoomLinks>div").attr("onClick", "return(doClick());");
 		$(".sacramentBlock").attr("onClick", "return(doClick());");
+		$(".zoomLinks>.u-list-item-4").attr("onClick", "return(multiClick());");
+		$(".zoomLinks>.u-list-item-5").attr("onClick", "return(multiClick());");
 	});
 } </script>
     <script> var today = new Date();
-var phrases = Array("So....it's not Sunday.",
-					"Sorry, these links only work on Sunday.",
-					"These 'Sunday Meeting Links' only work on Sundays. Crazy, I know.",
-					"Enthusiasm noted. Come back on Sunday!",
-					"Nothing going on today. Try back on Sunday.",
+var phrases = Array("Hmm...there doesn't appear to be a meeting right now.",
+					"Sorry, there's no meeting scheduled for today.",
+					"Enthusiasm noted. Come back later!",
+					"Nothing going on today. Try back later.",
 					"There's nothing to see right now.");
 						
 function random_string(phrases)
@@ -36,6 +37,13 @@ function doClick() {
 	if(today.getDay() !== 0) {alert(random_string(phrases));
 	return(false);
 								}
+}
+	
+function multiClick() {
+	if((today.getDay() !== 0) && (today.getDay() !== 2)){
+		alert(random_string(phrases));
+		return(false);
+		}
 } </script>
     
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
@@ -62,7 +70,7 @@ function doClick() {
   <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" /></head>
   <body class="u-body u-overlap"><header class="u-align-left-xs u-clearfix u-header" id="sec-8e5b"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <nav class="u-menu u-menu-dropdown u-menu-open-right u-offcanvas u-offcanvas-shift u-menu-1" data-responsive-from="SM">
-          <div class="menu-collapse" style="font-weight: 700; font-size: 1.25rem;">
+          <div class="menu-collapse" style="font-weight: 700; font-size: 1rem;">
             <a class="u-button-style u-nav-link u-text-white" href="#" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.4);">
               <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;"><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
@@ -74,7 +82,7 @@ function doClick() {
             <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-white" href="Logan-Green-Meadows.html#sec-ef7b" data-page-id="306747330" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.4);">Links</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-white" href="Logan-Green-Meadows.html#carousel_c806" data-page-id="306747330" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.4);">Home Study</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-white" href="Logan-Green-Meadows.html#sec-e4de" data-page-id="306747330" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.4);">Activities</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-white" href="Logan-Green-Meadows.html#sec-3735" data-page-id="306747330" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.4);">Apps</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-white" href="Logan-Green-Meadows.html#carousel_95c7" data-page-id="306747330" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.4);">Apps</a>
 </li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
@@ -84,7 +92,7 @@ function doClick() {
                 <ul class="u-align-center u-nav u-popupmenu-items u-spacing-15 u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Logan-Green-Meadows.html#sec-ef7b" data-page-id="306747330" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.4);">Links</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Logan-Green-Meadows.html#carousel_c806" data-page-id="306747330" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.4);">Home Study</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Logan-Green-Meadows.html#sec-e4de" data-page-id="306747330" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.4);">Activities</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Logan-Green-Meadows.html#sec-3735" data-page-id="306747330" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.4);">Apps</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Logan-Green-Meadows.html#carousel_95c7" data-page-id="306747330" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.4);">Apps</a>
 </li></ul>
               </div>
             </div>
@@ -94,69 +102,69 @@ function doClick() {
       </div></header>
     <section class="u-align-center u-clearfix u-image u-shading u-section-1" src="" id="sec-abe3" data-image-width="1500" data-image-height="1000">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h1 class="u-align-center-lg u-align-center-md u-align-center-xl u-custom-font u-font-Lobster u-text u-title u-text-1">Logan Green Meadows</h1>
+        <h1 class="u-align-center u-custom-font u-font-Lobster u-text u-title u-text-1">Logan Gree​n Meadows</h1>
         <p class="u-align-center-lg u-align-center-md u-large-text u-text u-text-palette-3-light-2 u-text-variant u-text-2">The official, unofficial page for local Ward information</p>
       </div>
     </section>
     <section class="u-align-center u-clearfix u-grey-5 u-section-2" id="sec-ef7b">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h1 class="u-align-center u-text u-text-palette-1-dark-1 u-text-1">Sunday Meeting Links</h1>
-        <div class="sacramentBlock u-align-center-xs u-container-style u-expanded-width-xs u-gradient u-group u-radius-15 u-shape-round u-group-1" data-href="https://us02web.zoom.us/j/86454224631?pwd=cGtPL2NacVlCZ2FtU1YvTWtDSUVZUT09" data-target="_blank">
+        <h1 class="u-align-center-lg u-align-center-md u-align-center-xl u-text u-text-palette-1-dark-1 u-text-1">zoom Meeting Links</h1>
+        <div class="sacramentBlock u-container-style u-expanded-width-xs u-gradient u-group u-radius-15 u-shape-round u-group-1" data-href="https://us02web.zoom.us/j/86454224631?pwd=cGtPL2NacVlCZ2FtU1YvTWtDSUVZUT09" data-target="_blank">
           <div class="u-container-layout u-valign-top-lg u-container-layout-1">
             <div alt="" class="u-image u-image-circle u-image-1" data-image-width="1200" data-image-height="800"></div>
-            <h4 class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xl u-text u-text-2">Sacrament Meeting</h4>
-            <p class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xl u-text u-text-palette-4-dark-2 u-text-3">Sundays at 10:30 am</p>
+            <h4 class="u-align-center u-text u-text-2">Sacrament Meeting</h4>
+            <p class="u-align-center u-text u-text-palette-4-dark-2 u-text-3">Sundays at 10:30 am</p>
           </div>
         </div>
       </div>
     </section>
     <section class="u-align-center u-clearfix u-gradient u-section-3" id="sec-708a">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-expanded-width u-list u-repeater zoomLinks u-list-1">
-          <div class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-container-style u-custom-background u-gradient u-list-item u-radius-20 u-repeater-item u-shape-round u-list-item-1" data-href="https://us04web.zoom.us/j/75887389937?pwd=SHJ2NloyU2RPMGp5UFRRYjR6UUlKdz09" data-target="_blank">
-            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
+        <div class="u-list u-repeater zoomLinks u-list-1">
+          <div class="u-align-center-lg u-align-center-md u-align-center-sm u-container-style u-custom-background u-gradient u-list-item u-radius-20 u-repeater-item u-shape-round u-list-item-1" data-href="https://us04web.zoom.us/j/75887389937?pwd=SHJ2NloyU2RPMGp5UFRRYjR6UUlKdz09" data-target="_blank">
+            <div class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-1">
               <div alt="" class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-image u-image-circle u-image-1" data-image-width="1200" data-image-height="799"></div>
-              <h4 class="u-align-center-xl u-text u-text-1">Elder's Quorum</h4>
+              <h4 class="u-align-center-xl u-align-center-xs u-text u-text-1">Elder's Quorum</h4>
               <p class="u-align-center-xl u-text u-text-2">2nd/4th Su<span style="font-weight: 400;"></span>ndays<br>11:45 am
               </p>
             </div>
           </div>
           <div class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-container-style u-custom-background u-gradient u-list-item u-radius-20 u-repeater-item u-shape-round u-list-item-2" data-href="https://us04web.zoom.us/j/78550170015?pwd=eGRMd3NINThjNVRUZ0hYM1kvSUM3QT09" data-target="_blank">
-            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2">
+            <div class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-2">
               <div alt="" class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-image u-image-circle u-image-2" data-image-width="1200" data-image-height="675"></div>
-              <h4 class="u-align-center-xl u-text u-text-3">Relief Society</h4>
+              <h4 class="u-align-center-xl u-align-center-xs u-text u-text-3">Relief Society</h4>
               <p class="u-align-center-xl u-text u-text-4">2nd/4th Sundays<br>12:30 pm
               </p>
             </div>
           </div>
           <div class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-container-style u-custom-background u-gradient u-list-item u-radius-20 u-repeater-item u-shape-round u-video-cover u-list-item-3" data-href="https://us04web.zoom.us/j/72986219322?pwd=SWJwZDhZOHlnU0NaOGNXTDBMbWtVQT09" data-target="_blank">
-            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
+            <div class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-3">
               <div alt="" class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-image u-image-circle u-image-3" data-image-width="580" data-image-height="299"></div>
-              <h4 class="u-align-center-xl u-text u-text-5">Gospel Doctrine</h4>
+              <h4 class="u-align-center-xl u-align-center-xs u-text u-text-5">Gospel Doctrine</h4>
               <p class="u-align-center-xl u-text u-text-6">1st/3rd Sundays<br>12:30 pm
               </p>
             </div>
           </div>
           <div class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-container-style u-custom-background u-gradient u-list-item u-radius-20 u-repeater-item u-shape-round u-list-item-4" data-href="https://us04web.zoom.us/j/78300019955?pwd=YjJoWTJXT2QySi9KQlBIUHJPaUR0QT09" data-target="_blank">
-            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4">
+            <div class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-4">
               <div alt="" class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-image u-image-circle u-image-4" data-image-width="590" data-image-height="331"></div>
-              <h4 class="u-align-center-xl u-text u-text-7">Young Women</h4>
-              <p class="u-align-center-xl u-text u-text-8">2nd/4th Sundays<br>12:30 pm
+              <h4 class="u-align-center-xl u-align-center-xs u-text u-text-7">Young Women</h4>
+              <p class="u-align-center-xl u-text u-text-8">2nd/4th Sundays -&nbsp;12:30 pm<br>&amp;<br>Tuesday Evening Activities
               </p>
             </div>
           </div>
-          <div class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-container-style u-custom-background u-gradient u-list-item u-radius-20 u-repeater-item u-shape-round u-list-item-5" data-href="https://us02web.zoom.us/j/84288966786?pwd=RUlEYkxhMnphdzRQYUZxTHNUZUNMZz09" data-target="_blank">
-            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5">
+          <div class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-container-style u-custom-background u-gradient u-list-item u-radius-20 u-repeater-item u-shape-round u-list-item-5" data-href="https://us05web.zoom.us/j/4676508649?pwd=U0pJUzZkQ2IxV0s2S2RVYVk4MHY1QT09" data-target="_blank">
+            <div class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-5">
               <div alt="" class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-image u-image-circle u-image-5" data-image-width="1024" data-image-height="682"></div>
-              <h4 class="u-align-center-xl u-text u-text-9">Young Men</h4>
-              <p class="u-align-center-xl u-text u-text-10">2nd/4th Sundays<br>11:45 am
+              <h4 class="u-align-center-xl u-align-center-xs u-text u-text-9">Young Men</h4>
+              <p class="u-align-center-xl u-text u-text-10">2nd/4th Sundays -&nbsp;11:45 am<br>&amp;<br>Tuesday Evening Activites
               </p>
             </div>
           </div>
           <div class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-container-style u-custom-background u-gradient u-list-item u-radius-20 u-repeater-item u-shape-round u-list-item-6" data-href="https://us05web.zoom.us/j/81804316212?pwd=bkFTVkR2WllvQUppQWNubGVIYzRNZz09" data-target="_blank">
-            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-6">
+            <div class="u-container-layout u-similar-container u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-6">
               <div alt="" class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-image u-image-circle u-image-6" data-image-width="600" data-image-height="375"></div>
-              <h4 class="u-align-center-xl u-text u-text-11">Youth Sunday School</h4>
+              <h4 class="u-align-center-xl u-align-center-xs u-text u-text-11">Youth Sunday School</h4>
               <p class="u-align-center-xl u-text u-text-12">1st/3rd Sundays<br>11:45 am
               </p>
             </div>
@@ -167,16 +175,16 @@ function doClick() {
     <section class="u-align-center u-clearfix u-grey-10 u-section-4" id="carousel_33a8">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-align-center-lg u-align-center-md u-text u-text-palette-1-dark-1 u-text-1">Other Links</h1>
-        <div class="u-align-center-xs u-container-style u-expanded-width-xs u-gradient u-group u-radius-15 u-shape-round u-group-1" data-href="https://www.facebook.com/groups/3194141400809957" data-target="_blank">
+        <div class="u-align-center-sm u-align-center-xs u-container-style u-expanded-width-xs u-gradient u-group u-radius-15 u-shape-round u-group-1" data-href="https://www.facebook.com/groups/3194141400809957" data-target="_blank">
           <div class="u-container-layout u-container-layout-1">
             <div alt="" class="u-image u-image-circle u-image-1" data-image-width="580" data-image-height="299"></div>
-            <h4 class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xl u-text u-text-2">Primary</h4>
-            <p class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xl u-text u-text-palette-1-base u-text-3">Facebook page</p>
+            <h4 class="u-align-center u-text u-text-2">Primary</h4>
+            <p class="u-align-center u-text u-text-palette-1-base u-text-3">Facebook page</p>
           </div>
         </div>
       </div>
     </section>
-    <section class="u-align-left u-clearfix u-image u-section-5" id="carousel_c806" data-image-width="1280" data-image-height="854">
+    <section class="u-align-left u-clearfix u-image u-valign-middle u-section-5" id="carousel_c806" data-image-width="1280" data-image-height="854">
       <div class="u-black u-container-style u-expanded-width-xs u-group u-opacity u-opacity-50 u-shape-rectangle u-group-1">
         <div class="u-container-layout u-container-layout-1">
           <h1 class="u-text u-text-palette-1-light-2 u-text-1">Home study</h1>
@@ -194,7 +202,7 @@ function doClick() {
             <div class="u-container-layout u-similar-container u-container-layout-1">
               <h4 class="u-text u-text-2">Relief Society</h4>
               <p class="u-align-right u-text u-text-palette-3-base u-text-3">Jan 14, 2021 - 6:00PM</p>
-              <p class="u-text u-text-grey-50 u-text-4">Daphne McKinnon is going to be leading a discussion and also teaching some coping mechanisms and tips for dealing with the feelings of hopelessness, depression and isolation, particularly related to the pandemic.<br>
+              <p class="u-text u-text-grey-50 u-text-4">Daphne McKinnon is going to be leading a discussion and also teach​ing some coping mechanisms and tips for dealing with the feelings of hopelessness, depression and isolation, particularly related to the pandemic.<br>
                 <br>See link below to join remotely
               </p>
               <p class="u-align-center u-text u-text-palette-1-base u-text-5">
@@ -205,33 +213,34 @@ function doClick() {
         </div>
       </div>
     </section>
-    <section class="u-align-center u-clearfix u-section-7" id="sec-3735">
-      <div class="u-clearfix u-sheet u-valign-middle-md u-sheet-1">
-        <h1 class="u-text u-text-default u-text-palette-1-dark-1 u-text-1">Mobile Apps</h1>
-        <p class="u-text u-text-2">These are some useful apps for home and church use.&nbsp;</p>
-        <div class="u-expanded-width u-list u-repeater u-list-1">
-          <div class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-container-style u-list-item u-repeater-item u-shape-rectangle">
-            <div class="u-container-layout u-similar-container u-valign-bottom-lg u-valign-bottom-md u-valign-bottom-sm u-valign-top-xs u-container-layout-1">
-              <img src="images/unnamed.png" alt="" class="u-align-center-md u-align-center-sm u-align-center-xs u-image u-image-round u-preserve-proportions u-radius-10 u-image-1" data-image-width="360" data-image-height="360">
-              <h3 class="u-align-center-xl u-text u-text-3">Gospel Library</h3>
-              <img src="images/appStore.png" alt="" class="u-image u-image-default u-image-2" data-image-width="1068" data-image-height="548" data-href="https://apps.apple.com/us/app/gospel-library/id598329798" data-target="_blank">
-              <img src="images/google-play-badge.png" alt="" class="u-align-center-md u-align-center-sm u-align-center-xs u-image u-image-default u-image-3" data-image-width="646" data-image-height="250" data-href="https://play.google.com/store/apps/details?id=org.lds.ldssa" data-target="_blank">
-            </div>
-          </div>
-          <div class="u-align-center u-container-style u-list-item u-repeater-item u-shape-rectangle">
-            <div class="u-container-layout u-similar-container u-valign-bottom-lg u-valign-bottom-md u-valign-bottom-sm u-valign-top-xs u-container-layout-2">
-              <img src="images/unnamed-2.png" alt="" class="u-align-center-md u-align-center-sm u-align-center-xs u-image u-image-round u-preserve-proportions u-radius-10 u-image-4" data-image-width="360" data-image-height="360">
-              <h3 class="u-align-center-xl u-text u-text-4">Member Tools</h3>
-              <img src="images/appStore.png" alt="" class="u-image u-image-default u-image-5" data-image-width="1068" data-image-height="548" data-href="https://apps.apple.com/us/app/member-tools/id391093033" data-target="_blank">
-              <img src="images/google-play-badge.png" alt="" class="u-align-center-md u-align-center-sm u-align-center-xs u-image u-image-default u-image-6" data-image-width="646" data-image-height="250" data-href="https://play.google.com/store/apps/details?id=org.lds.ldstools" data-target="_blank">
-            </div>
-          </div>
-          <div class="u-align-center u-container-style u-list-item u-repeater-item u-shape-rectangle">
-            <div class="u-container-layout u-similar-container u-valign-bottom-lg u-valign-bottom-md u-valign-bottom-sm u-valign-top-xs u-container-layout-3">
-              <img src="images/unnamed-3.png" alt="" class="u-align-center-md u-align-center-sm u-align-center-xs u-image u-image-round u-preserve-proportions u-radius-10 u-image-7" data-image-width="360" data-image-height="360">
-              <h3 class="u-align-center-xl u-text u-text-5">Gospel Living</h3>
-              <img src="images/appStore.png" alt="" class="u-image u-image-default u-image-8" data-image-width="1068" data-image-height="548" data-href="https://apps.apple.com/us/app/gospel-living/id1245330433" data-target="_blank">
-              <img src="images/google-play-badge.png" alt="" class="u-align-center-md u-align-center-sm u-align-center-xs u-image u-image-default u-image-9" data-image-width="646" data-image-height="250" data-href="https://play.google.com/store/apps/details?id=org.lds.liv&amp;hl=en_US&amp;gl=US" data-target="_blank">
+    <section class="u-align-center-md u-align-center-sm u-align-center-xs u-clearfix u-gradient u-section-7" id="carousel_95c7">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-gutter-30 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-align-left u-container-style u-expand-resize u-layout-cell u-left-cell u-size-34-md u-size-34-sm u-size-34-xs u-size-36-lg u-size-36-xl u-layout-cell-1">
+                <div class="u-container-layout">
+                  <div class="u-align-left u-container-style u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-group u-shape-rectangle u-group-1">
+                    <div class="u-container-layout u-container-layout-2">
+                      <img class="u-image u-image-contain u-image-round u-preserve-proportions u-radius-25 u-image-1" src="images/unnamed-9.png" data-image-width="360" data-image-height="360">
+                      <img class="u-image u-image-contain u-image-round u-preserve-proportions u-radius-25 u-image-2" src="images/unnamed-6.png" data-image-width="360" data-image-height="360">
+                      <img class="u-image u-image-contain u-image-round u-preserve-proportions u-radius-25 u-image-3" src="images/unnamed-5.png" data-image-width="360" data-image-height="360">
+                      <img class="u-image u-image-contain u-image-round u-preserve-proportions u-radius-25 u-image-4" src="images/unnamed.png" data-image-width="360" data-image-height="360">
+                      <img class="u-image u-image-contain u-image-round u-preserve-proportions u-radius-25 u-image-5" src="images/unnamed-3.png" data-image-width="360" data-image-height="360">
+                      <img class="u-image u-image-contain u-image-round u-preserve-proportions u-radius-20 u-image-6" src="images/unnamed-2.png" data-image-width="360" data-image-height="360">
+                      <img class="u-image u-image-contain u-image-round u-preserve-proportions u-radius-25 u-image-7" src="images/unnamed-7.png" data-image-width="360" data-image-height="360">
+                      <img class="u-image u-image-contain u-image-round u-preserve-proportions u-radius-25 u-image-8" src="images/unnamed-4.png" data-image-width="360" data-image-height="360">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-container-style u-layout-cell u-right-cell u-shape-rectangle u-size-24-lg u-size-24-xl u-size-26-md u-size-26-sm u-size-26-xs u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-3">
+                  <h1 class="u-align-center-lg u-align-center-md u-align-center-xs u-text u-text-palette-1-dark-1 u-text-1">Mobile Apps</h1>
+                  <p class="u-align-left-sm u-align-left-xs u-text u-text-2">Mobile apps to help you learn, listen, and stay connected are available on the church website.</p>
+                  <a href="https://www.churchofjesuschrist.org/pages/mobileapps?lang=eng" class="u-active-palette-1-dark-1 u-align-center u-btn u-btn-rectangle u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-0 u-text-palette-3-light-2 u-btn-1" target="_blank">Open church website</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -242,7 +251,7 @@ function doClick() {
     
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0072"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">...not an official chruch site.</p>
+        <p class="u-small-text u-text u-text-variant u-text-1">...this is not an official chruch site.</p>
       </div></footer><span style="height: 64px; width: 64px; margin-left: 0px; margin-right: auto; margin-top: 0px; background-image: none; right: 20px; bottom: 20px" class="u-back-to-top u-icon u-icon-circle u-opacity u-opacity-85 u-palette-1-base u-spacing-15" data-href="#">
         <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 551.13 551.13"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-1d98"></use></svg>
         <svg class="u-svg-content" enable-background="new 0 0 551.13 551.13" viewBox="0 0 551.13 551.13" xmlns="http://www.w3.org/2000/svg" id="svg-1d98"><path d="m275.565 189.451 223.897 223.897h51.668l-275.565-275.565-275.565 275.565h51.668z"></path></svg>
