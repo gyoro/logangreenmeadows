@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple Ordinance Counts</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center;">Temple Ordinance Counts by Organization</h1>
+    <div id="countsTable">Loading...</div>
+
+    <script>
+        async function fetchAndDisplayCounts() {
+            const baseId = "app4aR9UObYiT3Qf5"; 
+            const tableName = encodeURIComponent("Table 1");  // Encodes spaces properly
+            const apiKey = "patV5IaDpkc6M7AqN.6b7967432825b637feb7423c6461baefe2aaa816bc07a495db3a947edec9d17c";
+
+            try {
+                const url = `https://api.airtable.com/v0/${baseId}/${tableName}`;
+                const response = await fetch(url, {
+                    headers: { Authorization: `Bearer ${apiKey}` }
+                });
+
+                if (!response.ok) throw new Error(`HTTP Error! Status: ${response.status}`);
+
+                const data = await response.json();
+                const records = data.records || [];
+
+                // Define the correct organization order
+                const organizations = {
+                    "Relief Society": {},
+                    "Young Women": {},
+                    "Elder's Quorum": {},
+                    "Young Men": {}
+                };
+
+                const allOrdinances = ['Baptism', 'Initiatory', 'Endowment', 'Sealing'];
+                let totalCounts = { 'Baptism': 0, 'Initiatory': 0, 'Endowment': 0, 'Sealing': 0 };
+
+                // Initialize all values to 0
+                for (let org in organizations) {
+                    allOrdinances.forEach(ord => organizations[org][ord] = 0);
+                }
+
+                // Process records
+                records.forEach(record => {
+                    const fields = record.fields || {};
+                    const org = fields["Organization"];
+                    const ordinance = fields["Ordinance"];
+                    const count = parseInt(fields["How Many"], 10) || 0;
+
+                    if (org && ordinance && organizations[org]) {
+                        organizations[org][ordinance] += count;
+                        totalCounts[ordinance] += count;
+                    }
+                });
+
+                // Generate HTML Table
+                let html = `<table>
+                                <tr>
+                                    <th>Organization</th>
+                                    ${allOrdinances.map(o => `<th>${o}</th>`).join('')}
+                                </tr>`;
+
+                for (let org of Object.keys(organizations)) {
+                    html += `<tr>
+                                <td>${org}</td>
+                                ${allOrdinances.map(o => `<td>${organizations[org][o]}</td>`).join('')}
+                             </tr>`;
+                }
+
+                html += `<tr>
+                            <td><strong>Total</strong></td>
+                            ${allOrdinances.map(o => `<td><strong>${totalCounts[o]}</strong></td>`).join('')}
+                         </tr>`;
+
+                html += `</table>`;
+
+                document.getElementById("countsTable").innerHTML = html;
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                document.getElementById("countsTable").innerHTML = "<p>Failed to load data.</p>";
+            }
+        }
+
+        // Call the function on page load
+        fetchAndDisplayCounts();
+    </script>
+
+</body>
+</html>
