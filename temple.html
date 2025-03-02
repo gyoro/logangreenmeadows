@@ -79,7 +79,7 @@
                 });
 
                 // Display Indexing Total
-                document.getElementById("indexingTotal").innerHTML = `Indexing Total: ${indexingTotal}`;
+                document.getElementById("indexingTotal").innerHTML = `Indexing Total: ${indexingTotal} / 70,000`;
 
                 // Generate HTML Table
                 let html = `<table>
@@ -97,7 +97,7 @@
 
                 html += `<tr>
                             <td><strong>Total</strong></td>
-                            ${allOrdinances.map(o => `<td><strong>${totalCounts[o]} / 600</strong></td>`).join('')}
+                            ${allOrdinances.map(o => `<td><strong>${totalCounts[o]} / 700</strong></td>`).join('')}
                          </tr>`;
 
                 html += `</table>`;
