@@ -18,17 +18,22 @@
         th {
             background-color: #f2f2f2;
         }
+        .indexing-section {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-
-    <h1 style="text-align: center;">Temple Ordinance Counts by Organization</h1>
+    <h1 style="text-align: center;">Temple Goal Tracker</h1>
+    <div id="indexingTotal" class="indexing-section">Loading Indexing Total...</div>
     <div id="countsTable">Loading...</div>
-
     <script>
         async function fetchAndDisplayCounts() {
             const baseId = "app4aR9UObYiT3Qf5"; 
-            const tableName = encodeURIComponent("Table 1");  // Encodes spaces properly
+            const tableName = encodeURIComponent("Table 1");
             const apiKey = "patV5IaDpkc6M7AqN.6b7967432825b637feb7423c6461baefe2aaa816bc07a495db3a947edec9d17c";
 
             try {
@@ -42,7 +47,6 @@
                 const data = await response.json();
                 const records = data.records || [];
 
-                // Define the correct organization order
                 const organizations = {
                     "Relief Society": {},
                     "Young Women": {},
@@ -52,6 +56,7 @@
 
                 const allOrdinances = ['Baptism', 'Initiatory', 'Endowment', 'Sealing'];
                 let totalCounts = { 'Baptism': 0, 'Initiatory': 0, 'Endowment': 0, 'Sealing': 0 };
+                let indexingTotal = 0;
 
                 // Initialize all values to 0
                 for (let org in organizations) {
@@ -62,14 +67,19 @@
                 records.forEach(record => {
                     const fields = record.fields || {};
                     const org = fields["Organization"];
-                    const ordinance = fields["Ordinance"];
+                    const action = fields["Action/Ordinance"];
                     const count = parseInt(fields["How Many"], 10) || 0;
 
-                    if (org && ordinance && organizations[org]) {
-                        organizations[org][ordinance] += count;
-                        totalCounts[ordinance] += count;
+                    if (action === "Indexing") {
+                        indexingTotal += count;
+                    } else if (org && action && organizations[org]) {
+                        organizations[org][action] += count;
+                        totalCounts[action] += count;
                     }
                 });
+
+                // Display Indexing Total
+                document.getElementById("indexingTotal").innerHTML = `Indexing Total: ${indexingTotal}`;
 
                 // Generate HTML Table
                 let html = `<table>
@@ -87,7 +97,7 @@
 
                 html += `<tr>
                             <td><strong>Total</strong></td>
-                            ${allOrdinances.map(o => `<td><strong>${totalCounts[o]}</strong></td>`).join('')}
+                            ${allOrdinances.map(o => `<td><strong>${totalCounts[o]} / 600</strong></td>`).join('')}
                          </tr>`;
 
                 html += `</table>`;
@@ -95,11 +105,11 @@
                 document.getElementById("countsTable").innerHTML = html;
             } catch (error) {
                 console.error("Error fetching data:", error);
-                document.getElementById("countsTable").innerHTML = "<p>Failed to load data.</p>";
+                document.getElementById("indexingTotal").innerHTML = "<p>Failed to load indexing data.</p>";
+                document.getElementById("countsTable").innerHTML = "<p>Failed to load ordinance data.</p>";
             }
         }
 
-        // Call the function on page load
         fetchAndDisplayCounts();
     </script>
 
